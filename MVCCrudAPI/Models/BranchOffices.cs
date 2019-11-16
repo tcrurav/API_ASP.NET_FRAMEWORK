@@ -14,17 +14,16 @@ namespace MVCCrudAPI.Models
     using System.Collections.Generic;
     using System.Runtime.Serialization;
 
-    public partial class Bicycles
+    public partial class BranchOffices
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Bicycles()
+        public BranchOffices()
         {
             this.Stocks = new HashSet<Stocks>();
         }
     
         public int ID { get; set; }
-        public string Model { get; set; }
-        public Nullable<int> Year { get; set; }
+        public string Address { get; set; }
 
         [JsonIgnore]
         [IgnoreDataMember]

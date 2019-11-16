@@ -25,7 +25,9 @@ namespace MVCCrudAPI.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<bicycles> bicycles { get; set; }
+        public virtual DbSet<Bicycles> Bicycles { get; set; }
+        public virtual DbSet<BranchOffices> BranchOffices { get; set; }
+        public virtual DbSet<Stocks> Stocks { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

@@ -12,44 +12,44 @@ using MVCCrudAPI.Models;
 
 namespace MVCCrudAPI.Controllers
 {
-    public class BicyclesController : ApiController
+    public class BranchOfficesController : ApiController
     {
         private bicyclesEntities db = new bicyclesEntities();
 
-        // GET: api/Bicycles
-        public IQueryable<Bicycles> GetBicycles()
+        // GET: api/BranchOffices
+        public IQueryable<BranchOffices> GetBranchOffices()
         {
-            return db.Bicycles;
+            return db.BranchOffices;
         }
 
-        // GET: api/Bicycles/5
-        [ResponseType(typeof(Bicycles))]
-        public IHttpActionResult GetBicycles(int id)
+        // GET: api/BranchOffices/5
+        [ResponseType(typeof(BranchOffices))]
+        public IHttpActionResult GetBranchOffices(int id)
         {
-            Bicycles bicycles = db.Bicycles.Find(id);
-            if (bicycles == null)
+            BranchOffices branchOffices = db.BranchOffices.Find(id);
+            if (branchOffices == null)
             {
                 return NotFound();
             }
 
-            return Ok(bicycles);
+            return Ok(branchOffices);
         }
 
-        // PUT: api/Bicycles/5
+        // PUT: api/BranchOffices/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutBicycles(int id, Bicycles bicycles)
+        public IHttpActionResult PutBranchOffices(int id, BranchOffices branchOffices)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != bicycles.ID)
+            if (id != branchOffices.ID)
             {
                 return BadRequest();
             }
 
-            db.Entry(bicycles).State = EntityState.Modified;
+            db.Entry(branchOffices).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace MVCCrudAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BicyclesExists(id))
+                if (!BranchOfficesExists(id))
                 {
                     return NotFound();
                 }
@@ -70,35 +70,35 @@ namespace MVCCrudAPI.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Bicycles
-        [ResponseType(typeof(Bicycles))]
-        public IHttpActionResult PostBicycles(Bicycles bicycles)
+        // POST: api/BranchOffices
+        [ResponseType(typeof(BranchOffices))]
+        public IHttpActionResult PostBranchOffices(BranchOffices branchOffices)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Bicycles.Add(bicycles);
+            db.BranchOffices.Add(branchOffices);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = bicycles.ID }, bicycles);
+            return CreatedAtRoute("DefaultApi", new { id = branchOffices.ID }, branchOffices);
         }
 
-        // DELETE: api/Bicycles/5
-        [ResponseType(typeof(Bicycles))]
-        public IHttpActionResult DeleteBicycles(int id)
+        // DELETE: api/BranchOffices/5
+        [ResponseType(typeof(BranchOffices))]
+        public IHttpActionResult DeleteBranchOffices(int id)
         {
-            Bicycles bicycles = db.Bicycles.Find(id);
-            if (bicycles == null)
+            BranchOffices branchOffices = db.BranchOffices.Find(id);
+            if (branchOffices == null)
             {
                 return NotFound();
             }
 
-            db.Bicycles.Remove(bicycles);
+            db.BranchOffices.Remove(branchOffices);
             db.SaveChanges();
 
-            return Ok(bicycles);
+            return Ok(branchOffices);
         }
 
         protected override void Dispose(bool disposing)
@@ -110,9 +110,9 @@ namespace MVCCrudAPI.Controllers
             base.Dispose(disposing);
         }
 
-        private bool BicyclesExists(int id)
+        private bool BranchOfficesExists(int id)
         {
-            return db.Bicycles.Count(e => e.ID == id) > 0;
+            return db.BranchOffices.Count(e => e.ID == id) > 0;
         }
     }
 }
